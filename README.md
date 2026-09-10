@@ -113,19 +113,6 @@ Use the exported constants: `klikresi.CourierSPX`, `klikresi.CourierJNE`,
 `klikresi.CourierLion`, `klikresi.CourierIDExpress`, `klikresi.CourierAnteraja`,
 `klikresi.CourierWahana`, `klikresi.CourierTiki`.
 
-## Pricing
-
-The Klik Resi API is billed per request:
-
-| API | Price |
-|---|---|
-| Tracking | Rp 15 / request |
-| Rates | Rp 5 / request |
-| Location | Rp 1 / request |
-
-The `All*` helpers follow pagination cursors automatically — each page is a
-separate billed request.
-
 ## Errors
 
 Any non-2xx response returns an `*klikresi.APIError` implementing `error`,

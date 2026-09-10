@@ -56,8 +56,7 @@ func pageQuery(o pageOptions, extra url.Values) url.Values {
 	return query
 }
 
-// Search looks up locations matching the given keyword. Billed per request
-// (Location API, Rp 1 per request).
+// Search looks up locations matching the given keyword.
 func (l *Location) Search(ctx context.Context, keyword string, opts ...PageOption) (*LocationPage, error) {
 	query := pageQuery(applyPageOptions(opts), url.Values{"keyword": {keyword}})
 	var page LocationPage
@@ -67,8 +66,7 @@ func (l *Location) Search(ctx context.Context, keyword string, opts ...PageOptio
 	return &page, nil
 }
 
-// Provinces returns one page of provinces. Billed per request (Location
-// API, Rp 1 per request).
+// Provinces returns one page of provinces.
 func (l *Location) Provinces(ctx context.Context, opts ...PageOption) (*ProvincePage, error) {
 	query := pageQuery(applyPageOptions(opts), nil)
 	var page ProvincePage
@@ -78,8 +76,7 @@ func (l *Location) Provinces(ctx context.Context, opts ...PageOption) (*Province
 	return &page, nil
 }
 
-// Cities returns one page of cities within the given province. Billed per
-// request (Location API, Rp 1 per request).
+// Cities returns one page of cities within the given province.
 func (l *Location) Cities(ctx context.Context, provinceID string, opts ...PageOption) (*CityPage, error) {
 	query := pageQuery(applyPageOptions(opts), url.Values{"province_id": {provinceID}})
 	var page CityPage
@@ -89,8 +86,7 @@ func (l *Location) Cities(ctx context.Context, provinceID string, opts ...PageOp
 	return &page, nil
 }
 
-// Districts returns one page of districts within the given city. Billed
-// per request (Location API, Rp 1 per request).
+// Districts returns one page of districts within the given city.
 func (l *Location) Districts(ctx context.Context, cityID string, opts ...PageOption) (*DistrictPage, error) {
 	query := pageQuery(applyPageOptions(opts), url.Values{"city_id": {cityID}})
 	var page DistrictPage
