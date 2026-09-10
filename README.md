@@ -1,6 +1,6 @@
 # Klik Resi Go SDK
 
-Official Go client for the [Klik Resi](https://klikresi.com) shipping API.
+Official Go client for the [Klik Resi](https://klikresi.com) API.
 Track shipments, calculate shipping rates, and look up Indonesian locations
 (provinces, cities, districts) across couriers such as JNE, J&T, Shopee
 Express, SiCepat, TIKI, and more.
@@ -95,6 +95,15 @@ districts, err := client.Location.Districts(ctx, "33.08")
 all, err := client.Location.AllLocations(ctx, "depok")
 allProvinces, err := client.Location.AllProvinces(ctx)
 ```
+
+### Me
+
+```go
+// Fetch the profile of the account that owns the API key.
+me, err := client.Me.Get(ctx)
+```
+
+The response contains the account `ID`, `Name`, `Email`, and current `Balance`.
 
 ### Courier codes
 

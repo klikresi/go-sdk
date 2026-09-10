@@ -2,6 +2,14 @@ package klikresi
 
 import "time"
 
+// AccountProfile is the profile of the account that owns the API key.
+type AccountProfile struct {
+	ID      string  `json:"id"`
+	Name    string  `json:"name"`
+	Email   string  `json:"email"`
+	Balance float64 `json:"balance"`
+}
+
 // TrackingInfo is the full tracking information for a shipment.
 type TrackingInfo struct {
 	// Status is the normalized delivery status.

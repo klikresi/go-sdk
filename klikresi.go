@@ -1,10 +1,11 @@
-// Package klikresi provides a client for the Klik Resi shipping API.
+// Package klikresi provides a client for the Klik Resi API.
 //
-// It supports shipment tracking, shipping rate calculation, and location
-// lookup (search, provinces, cities, districts) across Indonesian couriers.
+// It supports account lookup, shipment tracking, shipping rate
+// calculation, and location lookup (search, provinces, cities, districts)
+// across Indonesian couriers.
 //
 // Create a client with NewClient and use the resources grouped under
-// Tracking, Rates, and Location:
+// Tracking, Rates, Location, and Me:
 //
 //	client := klikresi.NewClient("your-api-key")
 //	tracking, err := client.Tracking.Get(ctx, "YOUR-AWB", klikresi.CourierJNE)
@@ -47,6 +48,8 @@ type Client struct {
 	Rates *Rates
 	// Location provides access to the location API.
 	Location *Location
+	// Me provides access to the account profile API.
+	Me *Me
 }
 
 // NewClient returns a Client for the given API key. The base URL defaults
@@ -65,6 +68,7 @@ func NewClient(apiKey string) *Client {
 	c.Tracking = &Tracking{client: c}
 	c.Rates = &Rates{client: c}
 	c.Location = &Location{client: c}
+	c.Me = &Me{client: c}
 	return c
 }
 
